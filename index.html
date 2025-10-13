@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evelyn Torres</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png" type="image/png">
+</head>
+<body>
+
+  <div class="container">
+    <!-- FOTO DE PERFIL -->
+    <div class="profile-pic"></div>
+
+    <!-- NOMBRE -->
+    <h1 class="name">Evelyn Torres</h1>
+
+    <!-- DESCRIPCIÓN -->
+    <p class="description">Encuentra mis redes y todo mi contenido con un solo clic.</p>
+
+    <!-- BOTONES DE REDES SOCIALES -->
+    <div class="social-links">
+      <a href="#" class="social-btn" id="facebookBtn">Facebook</a>
+      <a href="#" class="social-btn" id="instagramBtn">Instagram</a>
+      <a href="#" class="social-btn" id="onlyfansBtn">OnlyFans</a>
+      <a href="#" class="social-btn" id="telegramBtn">Telegram</a>
+    </div>
+  </div>
+
+  <!-- MODAL DE ADVERTENCIA ONLYFANS -->
+  <div id="onlyfansModal" class="modal">
+    <div class="modal-content">
+      <h2>Contenido Sensible</h2>
+      <p>Este enlace puede contener contenido no apto para todo el público.</p>
+      <div class="modal-buttons">
+        <button id="acceptOnlyfans">Aceptar</button>
+        <button id="cancelOnlyfans">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE ADVERTENCIA TELEGRAM -->
+  <div id="telegramModal" class="modal">
+    <div class="modal-content">
+      <h2>Contenido Sensible</h2>
+      <p>Este enlace puede contener contenido no apto para todo el público.</p>
+      <div class="modal-buttons">
+        <button id="acceptTelegram">Aceptar</button>
+        <button id="cancelTelegram">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE TELEGRAM “PRÓXIMAMENTE” -->
+  <div id="comingSoonModal" class="modal">
+    <div class="modal-content">
+      <span id="closeComingSoon" style="float:right;cursor:pointer;font-weight:bold;font-size:18px;">&times;</span>
+      <p>Este rinconcito aún está en construcción, vuelve pronto 💫</p>
+    </div>
+  </div>
+
+  <!-- MODAL DE COOKIES -->
+  <div id="cookieModal">
+    <p>Este sitio utiliza cookies para mejorar tu experiencia. ¿Deseas aceptarlas?</p>
+    <button id="acceptCookies">Aceptar Cookies</button>
+  </div>
+
+  <!-- MODAL DE TÉRMINOS Y CONDICIONES -->
+  <div id="termsModal">
+    <div id="termsContent">
+      <h2>Términos y Condiciones de Uso</h2>
+      <p>Bienvenido(a) a este sitio web. Antes de continuar, es importante que lea detenidamente los siguientes términos y condiciones, ya que el acceso y uso del sitio implica la aceptación completa de los mismos.</p>
+
+      <p><strong>1. Restricción de edad:</strong><br>
+      Todo el contenido disponible en esta página está destinado únicamente a personas mayores de 18 años. Al acceder, usted confirma ser mayor de edad en su país de residencia y acepta no permitir el acceso a menores bajo ninguna circunstancia.</p>
+
+      <p><strong>2. Uso responsable del contenido:</strong><br>
+      El material presente en este sitio es para uso personal y exclusivo del visitante. Queda estrictamente prohibida la reproducción, distribución, modificación, venta, compartición o cualquier forma de difusión de los contenidos sin la autorización expresa de los propietarios del sitio. Cualquier infracción de estas normas puede derivar en sanciones legales y reclamaciones judiciales.</p>
+
+      <p><strong>3. Contenido generado con asistencia de inteligencia artificial:</strong><br>
+      Algunas secciones del sitio, textos, imágenes o elementos interactivos pueden haber sido elaborados o complementados con la ayuda de herramientas de inteligencia artificial. Este contenido ha sido creado bajo estándares de calidad, pero no debe interpretarse como producción humana exclusiva.</p>
+
+      <p><strong>4. Aceptación de los términos:</strong><br>
+      Al continuar utilizando este sitio, usted reconoce haber leído, comprendido y aceptado todos los términos y condiciones establecidos en este documento, así como cualquier actualización futura que pueda realizarse.</p>
+
+      <p><strong>5. Limitación de responsabilidad:</strong><br>
+      Los propietarios del sitio no se hacen responsables por cualquier uso indebido del contenido, errores, interrupciones del servicio, ni por daños directos o indirectos que puedan derivarse del acceso al sitio o de la confianza depositada en la información contenida en el mismo.</p>
+
+      <p><strong>6. Derechos de propiedad intelectual:</strong><br>
+      Todo el contenido del sitio, incluyendo textos, imágenes, diseños, logotipos, iconos, botones y software, es propiedad de los administradores y está protegido por leyes nacionales e internacionales de propiedad intelectual y derechos de autor.</p>
+
+      <p><strong>7. Actualizaciones y cambios:</strong><br>
+      Nos reservamos el derecho de modificar, actualizar o eliminar contenido y términos en cualquier momento, sin previo aviso. Se recomienda revisar periódicamente estos términos para estar al tanto de cualquier cambio.</p>
+
+      <button id="acceptTerms">Aceptar</button>
+    </div>
+  </div>
+
+  <script>
+    // =========================================================
+    // COOKIES Y TÉRMINOS
+    // =========================================================
+    const cookieModal = document.getElementById('cookieModal');
+    const acceptCookiesBtn = document.getElementById('acceptCookies');
+    const termsModal = document.getElementById('termsModal');
+    const acceptTermsBtn = document.getElementById('acceptTerms');
+
+    if(!localStorage.getItem('cookiesAccepted')){
+      cookieModal.style.display = 'block';
+    }
+
+    acceptCookiesBtn.addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', 'true');
+      cookieModal.style.display = 'none';
+      termsModal.style.display = 'block';
+    });
+
+    acceptTermsBtn.addEventListener('click', () => {
+      localStorage.setItem('termsAccepted', 'true');
+      termsModal.style.display = 'none';
+    });
+
+    // =========================================================
+    // BOTONES DE REDES SOCIALES
+    // =========================================================
+    document.getElementById('facebookBtn').addEventListener('click', () => {
+      window.open("https://www.facebook.com/profile.php?id=61582047751641", "_blank");
+    });
+
+    document.getElementById('instagramBtn').addEventListener('click', () => {
+      window.open("https://www.instagram.com/eve.torresx/", "_blank");
+    });
+
+    // =========================================================
+    // MODAL DE ADVERTENCIA ONLYFANS
+    // =========================================================
+    const onlyfansBtn = document.getElementById('onlyfansBtn');
+    const onlyfansModal = document.getElementById('onlyfansModal');
+    const acceptOnlyfans = document.getElementById('acceptOnlyfans');
+    const cancelOnlyfans = document.getElementById('cancelOnlyfans');
+
+    onlyfansBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      onlyfansModal.style.display = 'block';
+    });
+
+    acceptOnlyfans.addEventListener('click', () => {
+      onlyfansModal.style.display = 'none';
+      window.open("https://onlyfans.com/u528182583", "_blank");
+    });
+
+    cancelOnlyfans.addEventListener('click', () => {
+      onlyfansModal.style.display = 'none';
+    });
+
+    // =========================================================
+    // MODAL DE ADVERTENCIA TELEGRAM + “PRÓXIMAMENTE”
+    // =========================================================
+    const telegramBtn = document.getElementById('telegramBtn');
+    const telegramModal = document.getElementById('telegramModal');
+    const acceptTelegram = document.getElementById('acceptTelegram');
+    const cancelTelegram = document.getElementById('cancelTelegram');
+    const comingSoonModal = document.getElementById('comingSoonModal');
+    const closeComingSoon = document.getElementById('closeComingSoon');
+
+    telegramBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      telegramModal.style.display = 'block';
+    });
+
+    acceptTelegram.addEventListener('click', () => {
+      telegramModal.style.display = 'none';
+      comingSoonModal.style.display = 'block';
+    });
+
+    cancelTelegram.addEventListener('click', () => {
+      telegramModal.style.display = 'none';
+    });
+
+    closeComingSoon.addEventListener('click', () => {
+      comingSoonModal.style.display = 'none';
+    });
+
+  </script>
+</body>
+</html>
