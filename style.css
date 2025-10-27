@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* =========================================================
    ESTILOS GENERALES
    ========================================================= */
@@ -287,3 +288,294 @@ body {
     font-size: 0.9em;
   }
 }
+=======
+/* =========================================================
+   ESTILOS GENERALES
+   ========================================================= */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(-45deg, #ffb6c1, #c084fc, #93c5fd, #f9a8d4);
+  background-size: 400% 400%;
+  animation: gradientBG 10s ease infinite;
+  color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🔹 Animación del fondo degradado */
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =========================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================= */
+.container {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================================================
+   FOTO DE PERFIL
+   ========================================================= */
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  margin: 0 auto 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  background-image: url('Perfil.jpg'); /* Cambia el nombre si es otro archivo */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =========================================================
+   NOMBRE
+   ========================================================= */
+.name {
+  font-size: 2em;
+  font-weight: 700;
+  color: #3b3054; /* Tono oscuro para que resalte */
+  margin-bottom: 10px;
+}
+
+/* =========================================================
+   DESCRIPCIÓN
+   ========================================================= */
+.description {
+  font-size: 1em;
+  margin-bottom: 25px;
+  color: #fdfdfd;
+}
+
+/* =========================================================
+   BOTONES DE REDES SOCIALES
+   ========================================================= */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* 🔘 Estilo base de los botones */
+.social-btn {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 14px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ff9ec4, #a18fff);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: none;
+}
+
+/* 💫 Efecto hover */
+.social-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* =========================================================
+   MODALES (OnlyFans, Telegram, Próximamente)
+   ========================================================= */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  color: #333;
+  margin: 15% auto;
+  padding: 25px;
+  border-radius: 15px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content h2 {
+  color: #e91e63;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 0.95em;
+  margin-bottom: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#acceptOnlyfans, #acceptTelegram {
+  background-color: #4caf50;
+  color: white;
+}
+
+#cancelOnlyfans, #cancelTelegram {
+  background-color: #f44336;
+  color: white;
+}
+
+/* =========================================================
+   MODAL “PRÓXIMAMENTE” TELEGRAM
+   ========================================================= */
+#comingSoonModal .modal-content {
+  text-align: center;
+}
+
+#closeComingSoon {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+/* =========================================================
+   MODAL DE COOKIES
+   ========================================================= */
+#cookieModal {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 420px;
+  margin: auto;
+  z-index: 2000;
+}
+
+#cookieModal p {
+  margin-bottom: 15px;
+  font-size: 0.95em;
+}
+
+#cookieModal button {
+  background-color: #a855f7;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+#cookieModal button:hover {
+  background-color: #9333ea;
+}
+
+/* =========================================================
+   MODAL DE TÉRMINOS Y CONDICIONES
+   ========================================================= */
+#termsModal {
+  display: none;
+  position: fixed;
+  z-index: 1500;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#termsContent {
+  background-color: #fff;
+  color: #333;
+  margin: 5% auto;
+  padding: 25px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  text-align: left;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+#termsContent h2 {
+  text-align: center;
+  color: #a855f7;
+}
+
+#termsContent p {
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-size: 0.95em;
+}
+
+#termsContent button {
+  display: block;
+  margin: 20px auto 0;
+  padding: 8px 20px;
+  background-color: #a855f7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#termsContent button:hover {
+  background-color: #9333ea;
+}
+
+/* =========================================================
+   RESPONSIVO PARA MÓVILES
+   ========================================================= */
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .name {
+    font-size: 1.7em;
+  }
+
+  .description {
+    font-size: 0.9em;
+  }
+}
+>>>>>>> 62884eacc2e8452a35a0bf2a1120e3481c1f5a26
