@@ -97,33 +97,42 @@
     .modal-content {
       background-color: #fff;
       color: #333;
-      margin: 15% auto;
+      margin: 10% auto;
       padding: 25px;
       border-radius: 15px;
-      width: 80%;
-      max-width: 400px;
-      text-align: center;
+      width: 85%;
+      max-width: 420px;
+      text-align: left;
       position: relative;
+      overflow-y: auto;
+      max-height: 80vh;
     }
 
     .modal-content h2 {
       color: #a855f7;
       margin-bottom: 10px;
+      text-align: center;
     }
 
-    .modal-content p {
-      font-size: 0.95em;
-      margin-bottom: 20px;
+    .modal-content p, .modal-content li {
+      font-size: 0.9em;
+      margin-bottom: 12px;
+      line-height: 1.5em;
+    }
+
+    .modal-content ul {
+      padding-left: 20px;
     }
 
     .modal-buttons {
       display: flex;
       justify-content: center;
       gap: 20px;
+      margin-top: 15px;
     }
 
     .modal-buttons button {
-      padding: 8px 15px;
+      padding: 10px 18px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -161,6 +170,11 @@
       margin-bottom: 10px;
     }
 
+    #termsAccept {
+      background-color: #4caf50;
+      color: white;
+    }
+
     @media (max-width: 480px) {
       .container { width: 90%; padding: 20px; }
       .profile-pic { width: 120px; height: 120px; }
@@ -181,6 +195,26 @@
       <a href="https://www.instagram.com/eve.torresx/" target="_blank" class="social-btn">Instagram</a>
       <a href="#" class="social-btn" id="telegramBtn">Telegram</a>
       <a href="#" class="social-btn" id="patreonBtn">Patreon</a>
+    </div>
+  </div>
+
+  <!-- MODAL DE TÉRMINOS Y CONDICIONES -->
+  <div id="termsModal" class="modal">
+    <div class="modal-content">
+      <h2>Términos y Condiciones</h2>
+      <p>Bienvenido a la página oficial de <strong>Evelyn Torres</strong>. Al acceder y usar esta página, aceptas los siguientes términos:</p>
+      <ul>
+        <li>Queda estrictamente prohibida la distribución, reproducción o uso comercial no autorizado del contenido.</li>
+        <li>El contenido es únicamente informativo y de entretenimiento. No se garantiza exactitud ni responsabilidad por errores.</li>
+        <li>Esta página puede contener contenido para mayores de 18 años. Solo usuarios mayores de edad deben acceder.</li>
+        <li>Parte del contenido ha sido creado o editado con ayuda de inteligencia artificial (IA).</li>
+        <li>No se recopilan datos personales. Si en el futuro se agregan formularios, los datos se usarán solo para contacto o suscripción.</li>
+        <li>El acceso a enlaces externos (como Patreon o redes sociales) se realiza bajo tu responsabilidad.</li>
+        <li>Al aceptar, reconoces haber leído y comprendido estos términos. Su contenido puede actualizarse sin previo aviso.</li>
+      </ul>
+      <div style="text-align:center;margin-top:15px;">
+        <button id="termsAccept">Aceptar</button>
+      </div>
     </div>
   </div>
 
@@ -207,7 +241,7 @@
   </div>
 
   <script>
-    // Modal Patreon
+    // ======= Modal Patreon =======
     const patreonBtn = document.getElementById("patreonBtn");
     const patreonModal = document.getElementById("patreonModal");
     const acceptPatreon = document.getElementById("acceptPatreon");
@@ -226,7 +260,7 @@
       patreonModal.style.display = "none";
     });
 
-    // Modal Telegram
+    // ======= Modal Telegram =======
     const telegramBtn = document.getElementById("telegramBtn");
     const telegramModal = document.getElementById("telegramModal");
     const closeTelegram = document.getElementById("closeTelegram");
@@ -239,6 +273,24 @@
       telegramModal.style.display = "none";
     });
 
+    // ======= Modal Términos =======
+    const termsModal = document.getElementById("termsModal");
+    const termsAccept = document.getElementById("termsAccept");
+
+    // Verifica si el usuario ya aceptó los términos
+    window.addEventListener("DOMContentLoaded", () => {
+      const accepted = localStorage.getItem("acceptedTerms");
+      if (!accepted) {
+        termsModal.style.display = "block";
+      }
+    });
+
+    termsAccept.addEventListener("click", () => {
+      localStorage.setItem("acceptedTerms", "true");
+      termsModal.style.display = "none";
+    });
+
+    // Cierra modales al hacer clic fuera
     window.addEventListener("click", (e) => {
       if (e.target === telegramModal) telegramModal.style.display = "none";
       if (e.target === patreonModal) patreonModal.style.display = "none";
