@@ -5,196 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evelyn Torres 💖</title>
   <link rel="icon" type="image/png" href="favicon.png" />
-
-  <style>
-    /* =========================================================
-       ESTILOS GENERALES
-       ========================================================= */
-    body {
-      font-family: "Poppins", sans-serif;
-      background: linear-gradient(-45deg, #ffb6c1, #c084fc, #93c5fd, #f9a8d4);
-      background-size: 400% 400%;
-      animation: gradientBG 10s ease infinite;
-      color: white;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* =========================================================
-       CONTENEDOR PRINCIPAL
-       ========================================================= */
-    .container {
-      max-width: 400px;
-      margin: 60px auto;
-      padding: 30px;
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    /* =========================================================
-       FOTO DE PERFIL
-       ========================================================= */
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, 0.6);
-      margin: 0 auto 20px;
-      background-color: rgba(255, 255, 255, 0.1);
-      background-image: url('Perfil.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    /* =========================================================
-       NOMBRE
-       ========================================================= */
-    .name {
-      font-size: 2.2em;
-      font-weight: 700;
-      color: #f6e0f7; /* 💜 Un tono más oscuro para resaltar */
-      margin-bottom: 10px;
-    }
-
-    /* =========================================================
-       DESCRIPCIÓN
-       ========================================================= */
-    .description {
-      font-size: 1em;
-      margin-bottom: 25px;
-      color: #fdfdfd;
-    }
-
-    /* =========================================================
-       BOTONES DE REDES SOCIALES
-       ========================================================= */
-    .social-links {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .social-btn {
-      text-decoration: none;
-      color: white;
-      font-weight: 600;
-      padding: 12px;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.15);
-      transition: all 0.3s ease;
-      backdrop-filter: blur(5px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .social-btn:hover {
-      background: rgba(255, 255, 255, 0.35);
-      transform: scale(1.05);
-    }
-
-    /* =========================================================
-       MODALES (ADVERTENCIAS)
-       ========================================================= */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      color: #333;
-      margin: 15% auto;
-      padding: 25px;
-      border-radius: 15px;
-      width: 80%;
-      max-width: 400px;
-      text-align: center;
-      position: relative;
-    }
-
-    .modal-content h2 {
-      color: #a855f7;
-      margin-bottom: 10px;
-    }
-
-    .modal-content p {
-      font-size: 0.95em;
-      margin-bottom: 20px;
-    }
-
-    .modal-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .modal-buttons button {
-      padding: 8px 15px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    #acceptBtn, #acceptPatreon {
-      background-color: #4caf50;
-      color: white;
-    }
-
-    #cancelBtn, #cancelPatreon {
-      background-color: #f44336;
-      color: white;
-    }
-
-    /* =========================================================
-       MODAL DE "PRÓXIMAMENTE"
-       ========================================================= */
-    #telegramModal .modal-content {
-      background-color: #fff;
-      color: #333;
-    }
-
-    #telegramModal .close-btn {
-      position: absolute;
-      top: 8px;
-      right: 12px;
-      background: none;
-      border: none;
-      font-size: 20px;
-      color: #666;
-      cursor: pointer;
-    }
-
-    #telegramModal h2 {
-      color: #a855f7;
-      margin-bottom: 10px;
-    }
-
-    /* =========================================================
-       RESPONSIVO
-       ========================================================= */
-    @media (max-width: 480px) {
-      .container { width: 90%; padding: 20px; }
-      .profile-pic { width: 120px; height: 120px; }
-      .name { font-size: 1.8em; }
-      .description { font-size: 0.9em; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -211,7 +22,7 @@
     </div>
   </div>
 
-  <!-- MODAL DE ADVERTENCIA PATRON -->
+  <!-- MODAL DE ADVERTENCIA PATREON -->
   <div id="patreonModal" class="modal">
     <div class="modal-content">
       <h2>Redirección a Patreon 💜</h2>
@@ -233,6 +44,30 @@
     </div>
   </div>
 
+ <!-- MODAL TÉRMINOS Y CONDICIONES -->
+<div id="termsModal" class="modal">
+  <div id="termsContent" class="modal-content">
+    <h2>Términos y Condiciones</h2>
+    <p>Bienvenido a la página de Evelyn Torres. Al acceder y usar esta página, aceptas los siguientes términos y condiciones:</p>
+    
+    <ul>
+      <li>El acceso y uso de esta página implica la aceptación de estos términos.</li>
+      <li>Queda estrictamente prohibida la distribución, reproducción, modificación, difusión o uso comercial no autorizado del contenido. Cualquier incumplimiento puede derivar en sanciones legales.</li>
+      <li>El contenido se proporciona únicamente con fines informativos y de entretenimiento. No se garantiza exactitud ni responsabilidad por errores o malentendidos.</li>
+      <li>Este material ha sido elaborado con asistencia de inteligencia artificial (IA), incluyendo textos, imágenes o elementos visuales.</li>
+      <li>Esta página puede incluir enlaces a sitios con contenido para mayores de 18 años; accede bajo tu responsabilidad y solo si eres mayor de edad.</li>
+      <li>No se recopilan datos personales. Si en el futuro se agregan formularios, los datos se usarán únicamente para contacto o suscripciones y no serán vendidos ni compartidos.</li>
+      <li>Algunos datos técnicos pueden recopilarse de forma anónima (como cookies o datos de navegación) para mejorar tu experiencia en la página.</li>
+      <li>Estos términos pueden actualizarse en cualquier momento. Al continuar usando la página después de cambios, aceptas automáticamente los nuevos términos.</li>
+      <li>El uso indebido de la página o del contenido podrá generar sanciones o acciones legales.</li>
+    </ul>
+
+    <p>Al hacer clic en "Aceptar", confirmas que has leído, comprendido y aceptas estos términos y condiciones.</p>
+    <button id="acceptTermsBtn">Aceptar</button>
+  </div>
+</div>
+
+
   <script>
     // Modal Patreon
     const patreonBtn = document.getElementById("patreonBtn");
@@ -240,35 +75,32 @@
     const acceptPatreon = document.getElementById("acceptPatreon");
     const cancelPatreon = document.getElementById("cancelPatreon");
 
-    patreonBtn.addEventListener("click", () => {
-      patreonModal.style.display = "block";
-    });
-
+    patreonBtn.addEventListener("click", () => { patreonModal.style.display = "block"; });
     acceptPatreon.addEventListener("click", () => {
       window.open("https://www.patreon.com/c/EvelynTorres332", "_blank");
       patreonModal.style.display = "none";
     });
-
-    cancelPatreon.addEventListener("click", () => {
-      patreonModal.style.display = "none";
-    });
+    cancelPatreon.addEventListener("click", () => { patreonModal.style.display = "none"; });
 
     // Modal Telegram
     const telegramBtn = document.getElementById("telegramBtn");
     const telegramModal = document.getElementById("telegramModal");
     const closeTelegram = document.getElementById("closeTelegram");
 
-    telegramBtn.addEventListener("click", () => {
-      telegramModal.style.display = "block";
-    });
+    telegramBtn.addEventListener("click", () => { telegramModal.style.display = "block"; });
+    closeTelegram.addEventListener("click", () => { telegramModal.style.display = "none"; });
 
-    closeTelegram.addEventListener("click", () => {
-      telegramModal.style.display = "none";
-    });
+    // Modal Términos
+    const termsModal = document.getElementById("termsModal");
+    const closeTerms = document.getElementById("closeTerms");
 
+    closeTerms.addEventListener("click", () => { termsModal.style.display = "none"; });
+
+    // Cerrar modales al hacer clic fuera
     window.addEventListener("click", (e) => {
       if (e.target === telegramModal) telegramModal.style.display = "none";
       if (e.target === patreonModal) patreonModal.style.display = "none";
+      if (e.target === termsModal) termsModal.style.display = "none";
     });
   </script>
 </body>
