@@ -84,7 +84,9 @@ body {
   transform: scale(1.05);
 }
 
-/* MODALES */
+/* =========================================================
+   MODALES
+   ========================================================= */
 .modal {
   display: none;
   position: fixed;
@@ -142,7 +144,9 @@ body {
   color: white;
 }
 
-/* MODAL TELEGRAM */
+/* =========================================================
+   MODAL TELEGRAM
+   ========================================================= */
 #telegramModal .modal-content {
   background-color: #fff;
   color: #333;
@@ -164,13 +168,21 @@ body {
   margin-bottom: 10px;
 }
 
-/* MODAL TÉRMINOS */
+/* =========================================================
+   MODAL TÉRMINOS Y CONDICIONES (AJUSTADO)
+   ========================================================= */
 #termsModal .modal-content {
   background-color: #fff;
   color: #333;
+  max-height: 80vh;       /* Altura máxima del 80% de la pantalla */
+  overflow-y: auto;        /* Agrega scroll si el texto es muy largo */
+  padding-right: 15px;     /* Espacio para el scroll */
+  box-sizing: border-box;
 }
 
-/* RESPONSIVO */
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
 @media (max-width: 480px) {
   .container { width: 90%; padding: 20px; }
   .profile-pic { width: 120px; height: 120px; }
